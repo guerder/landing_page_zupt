@@ -1,0 +1,41 @@
+name: landing_page_zupt
+description: A new Flutter project.
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  http: ^0.13.3
+  google_fonts: ^2.1.0
+  validatorless: ^1.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints:
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/fonts/
+  fonts:
+    - family: Comfortaa
+      fonts:
+        - asset: assets/fonts/Comfortaa/Comfortaa-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Comfortaa/Comfortaa-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Comfortaa/Comfortaa-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Comfortaa/Comfortaa-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Comfortaa/Comfortaa-Light.ttf
+          weight: 300
