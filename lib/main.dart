@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
@@ -33,7 +32,7 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
@@ -78,21 +77,23 @@ class _HomePageState extends State<HomePage> {
     } finally {
       Navigator.of(context).pop();
     }
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        behavior: SnackBarBehavior.floating,
-        backgroundColor: const Color(0xff0B3349),
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
-        content: Text(
-          message,
-          style: GoogleFonts.roboto(
-            fontSize: 24,
-            color: Colors.white,
-            fontWeight: FontWeight.w400,
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: const Color(0xff0B3349),
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+          content: Text(
+            message,
+            style: GoogleFonts.roboto(
+              fontSize: 24,
+              color: Colors.white,
+              fontWeight: FontWeight.w400,
+            ),
           ),
         ),
-      ),
-    );
+      );
+    }
   }
 
   @override
@@ -386,7 +387,7 @@ class _HomePageState extends State<HomePage> {
                                             borderRadius:
                                                 BorderRadius.circular(5),
                                           ),
-                                          primary: Color(0xffF0B695),
+                                          backgroundColor: Color(0xffF0B695),
                                         ),
                                         label: Text(
                                           'Cadastrar',
