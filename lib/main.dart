@@ -8,12 +8,11 @@ import 'widgets/custom_expansion_panel.dart';
 import 'widgets/custom_text_field.dart';
 
 void main() {
-  Paint.enableDithering = true;
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Landing Page Zupt',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.light(background: Colors.white),
       ),
       home: const HomePage(),
     );
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -75,7 +75,9 @@ class _HomePageState extends State<HomePage> {
     } catch (e) {
       message = e.toString();
     } finally {
-      Navigator.of(context).pop();
+      if (mounted) {
+        Navigator.of(context).pop();
+      }
     }
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -278,6 +280,7 @@ class _HomePageState extends State<HomePage> {
                     ConstrainedBox(
                       constraints: BoxConstraints(maxWidth: 713, minWidth: 713),
                       child: Card(
+                        surfaceTintColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(10),

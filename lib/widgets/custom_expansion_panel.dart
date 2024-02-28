@@ -23,7 +23,7 @@ List<Item> generateItems(int numberOfItems) {
 }
 
 class CustomExpansionPanel extends StatefulWidget {
-  const CustomExpansionPanel({Key? key}) : super(key: key);
+  const CustomExpansionPanel({super.key});
 
   @override
   State<CustomExpansionPanel> createState() => _CustomExpansionPanelState();
@@ -53,7 +53,7 @@ class _CustomExpansionPanelState extends State<CustomExpansionPanel> {
       expandedHeaderPadding: EdgeInsets.zero,
       expansionCallback: (int index, bool isExpanded) {
         setState(() {
-          _data[index].isExpanded = !isExpanded;
+          _data[index].isExpanded = isExpanded;
         });
       },
       children: _data.map<ExpansionPanel>((Item item) {
